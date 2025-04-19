@@ -9,7 +9,7 @@ def agregar_envio():
     origen_envio = entry_origen.get()
     destino_envio = entry_destino.get()
     fecha_despacho = DateEntry_fecha.get()
-    estado_envio = var_estado_especie.get()
+    estado_envio = var_estado_envio.get()
 
     try:
         conexion = conexion_db.conectar_db()
