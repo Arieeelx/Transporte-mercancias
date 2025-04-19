@@ -1,9 +1,9 @@
-import  mysql.connector as mysql
+import mysql.connector as mysql
 
 def conectar_db():
     return mysql.connect(
         user="root",
-        password="xxxxxxxxxxxx",
+        password="Javiteamo11.",
         host="localhost",
         database="transportemercancias"
     )
