@@ -8,7 +8,7 @@ tabla = "envios"
 def agregar_envio():
     origen_envio = entry_origen.get()
     destino_envio = entry_destino.get()
-    fecha_despacho = DateEntry_fecha.get()
+    fecha_despacho = DateEntry.fecha_despacho.get()
     estado_envio = var_estado_envio.get()
 
     try:
