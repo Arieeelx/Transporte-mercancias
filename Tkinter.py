@@ -31,8 +31,8 @@ Funciones_envio.entry_origen = tk.Entry(frame_datos)
 Funciones_envio.entry_origen.grid(row=0, column=1, padx=5, sticky="e")
 Funciones_envio.entry_destino = tk.Entry(frame_datos)
 Funciones_envio.entry_destino.grid(row=1, column=1, padx=5, sticky="e")
-DateEntry_fecha_despacho = DateEntry.DateEntry(frame_datos, width=12, background='DeepSkyBlue3', foreground='black', borderwidth=10, date_pattern='dd/mm/yyyy')
-DateEntry_fecha_despacho.grid(row=2, column=1, padx=5, sticky="w")
+Funciones_envio.fecha_despacho_widget = DateEntry.DateEntry(frame_datos, width=12, background='DeepSkyBlue3', foreground='black', borderwidth=10, date_pattern='dd/mm/yyyy')
+Funciones_envio.fecha_despacho_widget.grid(row=2, column=1, padx=5, sticky="w")
 
 estado_envio = ["Pago procesado", "En bodega", "En tránsito", "Entregado"]
 Funciones_envio.var_estado_envio = tk.StringVar()
@@ -48,9 +48,8 @@ menu_estado_envio.grid(row=3, column=1, padx=5, sticky="w")
 btn_agregar_envio = tk.Button(frame_botones, text="Agregar envio", command=Funciones_envio.agregar_envio)
 btn_agregar_envio.grid(row=0, column=0, padx=5, pady=5)
 
-
-
-
+btn_mostrar_informacion = tk.Button(frame_botones, text="Mostrar información", command=Funciones_envio.mostrar_informacion)
+btn_mostrar_informacion.grid(row=0, column=1, padx=5, pady=5)
 
 
 
