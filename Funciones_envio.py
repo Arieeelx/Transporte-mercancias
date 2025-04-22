@@ -48,5 +48,49 @@ def mostrar_informacion():
     except Exception as e:
         messagebox.showerror("Error", f"Ocurrió un problema:\n{e}")
 
-#def actualizar_informacion():
-#def eliminar_registro():
+def eliminar_pedido():
+    try:
+        id_envio = entry_id_envio.get()
+
+        conexion = conexion_db.conectar_db()
+        cursor = conexion.cursor()
+
+        eliminar = f"delete from {tabla} where id = %s"
+
+        cursor.execute(eliminar, (id_envio,))
+
+        conexion.commit()
+        conexion.close()
+
+        messagebox.showinfo("Pedido eliminado", "Se ha eliminado el pedido solicitado")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"No se ha podido eliminar debido a: {e}")
+
+def actualizar_informacion():
+    try:
+        id_envio = entry_id_envio.get()
+        origen_envio = entry_origen.get()
+        destino_envio = entry_destino.get()
+        fecha_despacho = fecha_despacho_widget.get()
+        estado_envio = var_estado_envio.get()
+
+        if not id_envio:
+            messagebox.showerror("Error", "Ingresa un ID correcto, verifica en casilla mostrar información antes de actualizar datos.")
+            return
+
+        conexion = conexion_db.conectar_db()
+        cursor = conexion.cursor()
+
+        actualizar = f"update {tabla} set origen = %s, destino = %s, fecha_despacho = %s, estado = %s where id = %s"
+
+        cursor.execute(actualizar, (origen_envio, destino_envio, fecha_despacho, estado_envio, id_envio))
+
+        conexion.commit()
+        conexion.close()
+
+        messagebox.showinfo("Pedido actualizado", "Se realizan los cambios correspondientes")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Ha ocurrido un error\n{e}")
+
